@@ -1,6 +1,8 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[francais]{babel}
+\usepackage{microtype} % typography
+\usepackage{csquotes}  % smart quotes
 \usepackage{listings}
 \usepackage{minted}
 \usepackage{xcolor}
@@ -10,7 +12,9 @@
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
-\rhead{\textcolor{white}{\small{19 avril 2023}}} 
+%\rhead{\textcolor{gray}{\small{19 avril 2023}}} 
+\renewcommand{\headrulewidth}{0pt}
+\cfoot{\thepage}
 \renewcommand{\headrulewidth}{0pt}
 \cfoot{\thepage}
 \usepackage{titlesec}

@@ -6,3 +6,26 @@ pip install Pygments
 pdflatex main.tex
 xelatex main.tex
 lualatex main.tex
+
+
+% --- keep your preamble as is, then add this ---
+\fancyfoot[L]{\small\href{https://developer.android.com}{Android Docs}}
+\fancyfoot[C]{\thepage}
+\fancyfoot[R]{\small\href{https://kotlinlang.org}{Kotlin Lang}}
+
+If you want multiple references stacked in the center footer, you can combine them like this:
+\fancyfoot[C]{\small
+  \href{https://developer.android.com}{Android Docs} \, | \,
+  \href{https://kotlinlang.org}{Kotlin Lang} \, | \,
+  \href{https://github.com}{GitHub}
+}
+
+% --- HEADER ---
+\fancyhead[L]{\small\href{https://developer.android.com}{Android Docs}}
+\fancyhead[C]{\small\href{https://kotlinlang.org}{Kotlin Lang}}
+\fancyhead[R]{\textcolor{gray}{\small{19 avril 2023}}}
+
+% --- FOOTER ---
+\fancyfoot[L]{\small\href{https://developer.android.com}{Android Docs}}
+\fancyfoot[C]{\thepage}
+\fancyfoot[R]{\small\href{https://kotlinlang.org}{Kotlin Lang}}
