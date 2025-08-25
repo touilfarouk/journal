@@ -1,0 +1,62 @@
+\documentclass[12pt]{article}
+\input{preamble.tex}
+\begin{document}
+% Removed maketitle and kept only custom title page
+\begin{titlepage}
+\pagestyle{empty}
+\newgeometry{margin=0cm, top=0cm, bottom=0cm, headheight=0pt}
+
+\begin{tikzpicture}[remember picture,overlay]
+  \node[inner sep=0pt] at (current page.center) {%
+  \includegraphics[width=\paperwidth, height=1.1\paperheight]{images/background.png}
+  };
+  \node[inner sep=0pt, anchor=north, yshift=-2cm, align=center] at (current page.north) {%
+  \scalebox{5}{\textcolor{yellow}{\bfseries The Ultimate }} 
+    \\
+    \\
+      \scalebox{5}{\textcolor{yellow}{\bfseries Guide to}} 
+    \\
+    \\
+      \scalebox{5}{\textcolor{yellow}{\bfseries Modern Android }} 
+        \\
+    \\
+      \scalebox{5}{\textcolor{yellow}{\bfseries for 2025}} 
+  };
+
+  \node[inner sep=0pt, anchor=north, yshift=-20cm, align=left, xshift=-80pt] at (current page.north) {%
+\scalebox{3}{\textcolor{white}{\bfseries Building }} 
+\\
+\\
+\scalebox{3}{\textcolor{white}{\bfseries  Scalable MVVM Apps }} 
+\\
+\\
+\scalebox{3}{\textcolor{white}{\bfseries with Modern Kotlin }} 
+\\
+\\
+\scalebox{3}{\textcolor{white}{\bfseries and Clean Architecture}} 
+};
+
+\end{tikzpicture}
+
+\restoregeometry 
+\end{titlepage}
+
+
+\newpage
+\thispagestyle{empty}
+\mbox{}
+\newpage
+
+% Removed \maketitle here to prevent duplicate title page
+\pagestyle{fancy}
+\newpage
+\include{chapters/summary/summary}
+
+
+\newpage
+\include{chapters/introduction/introduction}
+
+\newpage
+\include{chapters/conclusion/conclusion}
+
+\end{document}

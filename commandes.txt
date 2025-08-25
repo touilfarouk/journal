@@ -1,0 +1,8 @@
+sudo apt install texlive-full
+https://tug.org/texlive/windows.html
+python -m venv ./venv
+.\venv\Scripts\activate
+pip install Pygments
+pdflatex main.tex
+xelatex main.tex
+lualatex main.tex

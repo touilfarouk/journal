@@ -1,0 +1,49 @@
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[francais]{babel}
+\usepackage{listings}
+\usepackage{minted}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usemintedstyle{monokai}
+\usepackage[margin=1.5cm, top=3cm, bottom=1.5cm, headheight=15pt]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\textcolor{white}{\small{19 avril 2023}}} 
+\renewcommand{\headrulewidth}{0pt}
+\cfoot{\thepage}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=orange,
+    urlcolor=orange
+}
+\usepackage{booktabs} % in preamble
+\titleformat{\section}
+{\normalfont\Large\bfseries\color{orange}}{\thesection}{1em}{}
+\usepackage{enumitem}
+\setlist{nosep}
+\pagecolor{white} 
+\color{black} 
+\definecolor{bg}{rgb}{0.1, 0.14, 0.13} 
+\setminted[kotlin]{bgcolor=bg} 
+\usepackage{graphicx}
+\usepackage{roboto}
+\renewcommand{\familydefault}{\sfdefault}
+\tcbuselibrary{listings, minted, skins}
+
+\tcbset{listing engine=minted}
+
+\newtcblisting{ktlst}{listing only, minted language=kotlin, minted style=paraiso-dark,
+    colback=bg, enhanced, frame hidden, minted options={tabsize=2, breaklines, autogobble}}
+
+% Fixed title and added empty author/date
+\title{\textcolor{gray}{\Huge\bfseries KOTLIN POUR LES DÉBUTANTS}}
+\author{}  % Added empty author to suppress warning
+\date{}    % Suppress date
+\usepackage{tabularx} % in preamble
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage[absolute,overlay]{textpos} 
