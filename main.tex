@@ -10,31 +10,37 @@
   \node[inner sep=0pt] at (current page.center) {%
   \includegraphics[width=\paperwidth, height=1.1\paperheight]{images/background.png}
   };
-  \node[inner sep=0pt, anchor=north, yshift=-2cm, align=center] at (current page.north) {%
-  \scalebox{5}{\textcolor{yellow}{\bfseries The Ultimate }} 
-    \\
-    \\
-      \scalebox{5}{\textcolor{yellow}{\bfseries Guide to}} 
-    \\
-    \\
-      \scalebox{5}{\textcolor{yellow}{\bfseries Modern Android }} 
-        \\
-    \\
-      \scalebox{5}{\textcolor{yellow}{\bfseries for 2025}} 
-  };
 
-  \node[inner sep=0pt, anchor=north, yshift=-20cm, align=left, xshift=-80pt] at (current page.north) {%
-\scalebox{3}{\textcolor{white}{\bfseries Building }} 
-\\
-\\
-\scalebox{3}{\textcolor{white}{\bfseries  Scalable MVVM Apps }} 
-\\
-\\
-\scalebox{3}{\textcolor{white}{\bfseries with Modern Kotlin }} 
-\\
-\\
-\scalebox{3}{\textcolor{white}{\bfseries and Clean Architecture}} 
+% --- Titre principal aligné à gauche ---
+\node[inner sep=0pt, anchor=north, yshift=-2cm, align=left, xshift=-1cm] at (current page.north) {%
+
+  \scalebox{3.9}{\textcolor{yellow}{\bfseries Développement}} 
+  \\
+  \\
+  \scalebox{3.9}{\textcolor{yellow}{\bfseries d'applications mobiles}} 
+  \\
+  \\
+  \scalebox{3.9}{\textcolor{yellow}{\bfseries modernes avec}} 
+  \\
+  \\
+  \scalebox{3.9}{\textcolor{yellow}{\bfseries Jetpack et Kotlin}} 
 };
+
+
+% --- Sous-titre aligné à gauche ---
+\node[inner sep=0pt, anchor=north, yshift=-20cm, align=left, xshift=-1cm] at (current page.north) {%
+  \scalebox{2.5}{\textcolor{white}{\bfseries Construire}} 
+  \\
+  \\
+  \scalebox{2.5}{\textcolor{white}{\bfseries des Applications Scalables}} 
+  \\
+  \\
+  \scalebox{2.5}{\textcolor{white}{\bfseries avec Kotlin }} 
+  \\
+  \\
+  \scalebox{2.5}{\textcolor{white}{\bfseries et une Architecture Propre}} 
+};
+
 
 \end{tikzpicture}
 
@@ -42,10 +48,59 @@
 \end{titlepage}
 
 
+
 \newpage
-\thispagestyle{empty}
-\mbox{}
+% ----------------- Deuxième page de titre enrichie -----------------
+\begin{titlepage}
+
+% ======= CHOISIS UN FOND =======
+
+% --- 1. Dégradé vertical ---
+% --- Dégradé vertical + cercle décoratif ---
+\begin{tikzpicture}[remember picture,overlay]
+  % Dégradé de haut en bas
+  \shade[top color=gray!10, bottom color=gray!40]
+    (current page.north west) rectangle (current page.south east);
+
+  % Cercle semi-transparent blanc par-dessus
+  \fill[white, opacity=0.25] 
+    ([xshift=6cm,yshift=-8cm]current page.north west) circle (10cm);
+\end{tikzpicture}
+
+% ======= CONTENU DE LA PAGE =======
+\begin{flushleft}
+\vspace*{-1.5cm} % marge réduite en haut
+
+{\fontsize{38}{44}\selectfont \bfseries\textbf{
+\begin{tabular}{l}
+Développement \\
+D'applications Mobiles \\
+Modernes Avec \\
+Jetpack Et Kotlin
+\end{tabular}
+}} \\[1.5cm]
+
+{\large Améliorez vos applications en intégrant Jetpack et 
+\\
+en appliquant les concepts architecturaux modernes} \\[2cm]
+
+{\Large \textbf{Touil Farouk}} \\[0.5cm]
+
+{\large Développeur d’applications mobiles et concepteur
+\\
+ d’interfaces } \\[1.5cm]
+
+% Photo
+\includegraphics[width=5cm]{images/myphoto.png} \\[0.5cm]
+
+{Email:  \texttt{farouktouil@hotmail.com, Alger }}\\[0.2cm]
+
+\end{flushleft}
+\end{titlepage}
+% ----------------- End of Deuxième page de titre enrichie -----------------
 \newpage
+
+
 
 % Removed \maketitle here to prevent duplicate title page
 \pagestyle{fancy}

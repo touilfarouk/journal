@@ -1,69 +1,82 @@
-\section{\hyperref[sec:summary]{\textcolor{orange}{Introduction à Kotlin}}}\label{sec:intro}
+\section{\hyperref[sec:summary]{\textcolor{orange}{Introduction}}}\label{sec:intro}
+\noindent
+\noindent
+\begin{minipage}[t]{0.48\textwidth}
+\section*{Introduction à Jetpack Compose}
 
-\textbf{Kotlin} est un langage moderne et concis conçu pour la JVM et largement utilisé pour le développement Android. Il améliore la productivité en réduisant le code boilerplate et en assurant une meilleure sécurité des types.
+Bonjour et bienvenue dans ce livre consacré à Jetpack Compose.  
+Si tu tiens ce livre entre tes mains, c’est probablement parce que tu sens que quelque chose a changé dans le monde du développement Android.  
+Et tu as raison : avec l’arrivée de Jetpack Compose en version stable, nous entrons dans une nouvelle ère.  
 
-\section{\textcolor{orange}{Déclaration d'une classe en Kotlin}}\label{sec:classes}
-\begin{ktlst}
+\vspace{2em} % espace vertical à l'intérieur du bloc gauche
 
-[versions]
-  hilt = "2.52"
-  ksp = "2.0.21-1.0.25"
+\section*{Fin de l’ère XML}
 
-[libraries]
-  hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
-  hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt" }
-  hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version = "1.2.0" }
+Finis les fichiers XML interminables, finis les \texttt{findViewById()} qui traînent dans tous les coins.  
+Avec Compose, on écrit l’interface directement en Kotlin.  
+On pense en déclaratif.  
+On code plus vite.  
+On code plus propre.  
+Et, soyons honnêtes : on s’amuse beaucoup plus.  
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\section*{Création simplifiée d’interfaces}
 
-[plugins]
-  hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
-  ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+Tu veux créer un bouton personnalisé ?  
+Un champ de saisie un peu spécial ?  
+Ou carrément une interface complète qui réagit en temps réel ?  
+Rien de plus simple : une fonction, une annotation \texttt{@Composable}, et Compose s’occupe du reste.  
 
-\end{ktlst}
+\vspace{2em} % espace vertical à l'intérieur du bloc droit
 
-\section{\textcolor{orange}{Implémentation de MVVM en Android}}\label{sec:mvvm}
-\begin{ktlst}
-plugins {
-    alias(libs.plugins.android.application) apply false
-    alias(libs.plugins.kotlin.android) apply false
-    alias(libs.plugins.kotlin.compose) apply false
-    alias(libs.plugins.hilt.android) apply false   //  mark as apply false
-    alias(libs.plugins.ksp) apply false           //  mark as apply false
+\section*{Un projet concret ensemble}
 
-}
-\end{ktlst}
+Dans ce livre, on ne va pas se contenter de survoler Compose.  
+On va construire un vrai projet ensemble : une application de type Gestion de tâches.  
+Un seul \texttt{Activity}, zéro \texttt{Fragment}. Oui, zéro.  
+Et pourtant, une application complète, fonctionnelle, et moderne.  
+\end{minipage}
+\vspace{2em} % espace vertical à l'intérieur du bloc gauche
+\vspace{2em} % espace vertical à l'intérieur du bloc gauche
+\begin{tcolorbox}[colback=orange!5!white, colframe=orange!80!black, 
+title=\textbf{Voici ce qui t’attend}, sharp corners, boxrule=0.6pt]
 
-\begin{ktlst}
-plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlin.compose)
-    //  apply Hilt + KSP only here
-    alias(libs.plugins.hilt.android)
-    alias(libs.plugins.ksp)
-}
-\end{ktlst}
+\begin{itemize}
+    \item[\textbf{--}] \textbf{Les bases de Jetpack Compose} : son cycle de vie, la recomposition, et le rôle magique du compilateur.
+    \item[\textbf{--}] \textbf{Room Database} : stocker nos tâches localement, avec même quelques requêtes SQL personnalisées.
+    \item[\textbf{--}] \textbf{Navigation Compose} : passer d’un écran à l’autre sans prise de tête.
+    \item[\textbf{--}] \textbf{ViewModel} : garder une logique propre et réutilisable.
+    \item[\textbf{--}] \textbf{DataStore} : enregistrer de petites préférences utilisateurs.
+    \item[\textbf{--}] \textbf{Dagger Hilt} : injecter nos dépendances comme des pros, sans se battre avec des \texttt{ViewModelFactory}.
+\end{itemize}
 
-\begin{ktlst}
-dependencies {
+\vspace{0.5em}
+\textbf{Et ce n’est pas tout :}
 
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
-    implementation(libs.androidx.activity.compose)
-    implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.androidx.ui)
-    implementation(libs.androidx.ui.graphics)
-    implementation(libs.androidx.ui.tooling.preview)
-    implementation(libs.androidx.material3)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
-    androidTestImplementation(platform(libs.androidx.compose.bom))
-    androidTestImplementation(libs.androidx.ui.test.junit4)
-    debugImplementation(libs.androidx.ui.tooling)
-    debugImplementation(libs.androidx.ui.test.manifest)
+\begin{itemize}
+    \item[$\star$] Un \textbf{splash screen animé}.
+    \item[$\star$] Une fonction \textbf{Swipe-to-delete} (parce que supprimer en glissant, c’est tellement satisfaisant).
+    \item[$\star$] Un système \textbf{Undo} pour récupérer une tâche supprimée par erreur.
+    \item[$\star$] Des \textbf{animations fluides} pour rendre l’expérience encore plus agréable.
+    \item[$\star$] Le \textbf{mode sombre}, activé dès le départ, parce que nos yeux le méritent.
+\end{itemize}
 
-    implementation(libs.hilt.android)
-    ksp(libs.hilt.compiler)
-    implementation(libs.hilt.navigation.compose)
-}
-\end{ktlst}
+\end{tcolorbox}
+
+\vspace{1em}
+
+\noindent Mais ce livre n’est pas seulement une suite d’exemples.  
+Il est pensé comme un \textbf{compagnon de route}.  
+
+Tu vas apprendre à structurer tes projets, à écrire un code plus propre, à comprendre ce qui se passe sous le capot.  
+
+Bref : à devenir un \textbf{développeur Android moderne}.  
+
+\vspace{0.5em}
+\begin{center}
+\textit{Alors, es-tu prêt à tourner la page et à te lancer dans Compose ?}\\
+Parce que l’avenir du développement Android commence maintenant.\\
+\textbf{Et il commence avec toi.}
+\end{center}
+

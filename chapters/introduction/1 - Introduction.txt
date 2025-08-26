@@ -1,0 +1,29 @@
+(Transcribed by TurboScribe.ai. Go Unlimited to remove this message.)
+
+Hi, hello there, and welcome to my course. In this course, I'm going to teach you how to build your first Android app from scratch using a popular UI toolkit called Jetpack Compose. I know that lots of you have been waiting for this moment, a moment when Jetpack Compose became stable.
+
+And now is the right time to be an Android developer. With Jetpack Compose, building Android apps is going to be exciting, fun, and a lot simpler than before. We're not going to need XML anymore.
+
+Instead, we're going to build our UI with a regular Kotlin file, using the full power of Kotlin programming language. Also, creating a custom UI component has never been easier. So, you want to build a custom UI component? No problem.
+
+Just start by adding a simple function annotated with a composable annotation. And of course, how would this course look like without a real project? So, our to-do application, which we are going to develop in this course, will have a single activity and zero fragments. Sounds impossible? Well, it isn't.
+
+So, better get used to it, because that will greatly simplify the process of developing Android apps. Now, at the beginning of this course, I'm going to introduce you with Jetpack Compose in general, and with some of the most important concepts as well. You will learn everything about the lifecycle of a single composable, and how Compose Compiler is doing all the hard work for you behind the scenes.
+
+Now, in this course, we are going to use some of the most important Android architecture components, like Room Database, to save and read data from a local database. Plus, we're going to write some custom SQL queries as well. Then, we have Compose Navigation, so we can navigate between our screen composables.
+
+And at the end of this course, you will also learn how to add some beautiful transition animations as well. Next, we have a ViewModel, which will contain all the logic needed to work with our app. Then, we have a PreferenceDataStore, to persist a simple key and value pairs.
+
+And you will learn about a popular dependence injection library called DaggerHilt. You will see how to inject a ViewModel with different dependencies, without needing to create a ViewModelFactory. So, by default, our application will support dark mode as well, and you will learn how easy it is to have two different themes of your app, with Jetpack Compose.
+
+Also, you will learn how to build your own custom UI components. And we will use some of the most important material components, along with the Scaffold, which is an amazing composable function that uses Slots API, to place all your UI components in the place they belong, by the rules of material design documentation. Now, to-do application on which we are going to work on, we'll have an animated splash screen, as some other components in our app as well.
+
+Also, an animated SwipeToDelete functionality, which will allow us to easily remove an item from the list. And along with that, we will add a safety feature called UndoDeletedItem, which will display a snack bar, whenever we delete an item from the list. So, we can get it back just by one click.
+
+Now, you will learn plenty of other things related to the new way of developing Android apps. And finally, this course will be constantly updated with new videos whenever needed. So, whenever we find a bug in our application, then I'm going to record a video about it, and we are going to fix that together.
+
+Plus, you will be in contact with me throughout this whole course, and you can always ask me a question related to this course, and even suggest some code cleanup for the project, if you are skilled enough to find it. Overall, this is going to be quite a journey. So, what are you waiting for, my friend? Let's start learning!
+
+(Transcribed by TurboScribe.ai. Go Unlimited to remove this message.)
+
+-------------------------------------------------------------------------french----------------------------------------------
