@@ -2,7 +2,7 @@
 \noindent
 \noindent
 \begin{minipage}[t]{0.48\textwidth}
-\section*{Introduction à Jetpack Compose}
+\section*{Pourquoi Compose change tout}
 
 Bonjour et bienvenue dans ce livre consacré à Jetpack Compose.  
 Si tu tiens ce livre entre tes mains, c’est probablement parce que tu sens que quelque chose a changé dans le monde du développement Android.  
@@ -64,19 +64,32 @@ title=\textbf{Voici ce qui t’attend}, sharp corners, boxrule=0.6pt]
 
 \end{tcolorbox}
 
-\vspace{1em}
+\newpage
+\noindent Dans ce livre, nous allons manipuler certains des composants d’architecture Android les plus essentiels.
+Par exemple, nous utiliserons Room Database pour enregistrer et lire nos données localement. Et, bien sûr, nous irons plus loin qu’un simple CRUD : nous écrirons également quelques requêtes SQL personnalisées pour tirer pleinement parti de notre base de données.
 
-\noindent Mais ce livre n’est pas seulement une suite d’exemples.  
-Il est pensé comme un \textbf{compagnon de route}.  
+Ensuite, nous aborderons Compose Navigation, afin de passer d’un écran à l’autre sans la complexité habituelle.
+Puis, au fil du chemin, nous intégrerons un ViewModel, véritable cœur logique de notre application, qui nous permettra de centraliser et de structurer le code métier.
+À cela viendra s’ajouter le Preference DataStore, parfait pour sauvegarder de simples couples clé–valeur de manière moderne et sécurisée.
 
-Tu vas apprendre à structurer tes projets, à écrire un code plus propre, à comprendre ce qui se passe sous le capot.  
+Mais ce n’est pas tout. Vous découvrirez également une bibliothèque très populaire d’injection de dépendances : Dagger Hilt. Grâce à elle, plus besoin de créer manuellement des ViewModelFactory. Nous injecterons nos dépendances proprement, et surtout efficacement.
 
-Bref : à devenir un \textbf{développeur Android moderne}.  
+Et parce qu’une application moderne ne se limite pas à sa logique interne, nous soignerons aussi son apparence.
+Notre application prendra en charge le mode sombre dès le départ. Vous verrez combien il est simple, avec Jetpack Compose, d’offrir plusieurs thèmes à vos utilisateurs.
+Nous créerons ensemble des composants UI personnalisés, tout en exploitant les composants Material Design les plus importants.
+Nous découvrirons aussi le Scaffold, un composable puissant qui utilise l’API des “slots” pour organiser vos interfaces de manière cohérente et fidèle aux recommandations de Material Design.
 
-\vspace{0.5em}
-\begin{center}
-\textit{Alors, es-tu prêt à tourner la page et à te lancer dans Compose ?}\\
-Parce que l’avenir du développement Android commence maintenant.\\
-\textbf{Et il commence avec toi.}
-\end{center}
+Et ce n’est pas fini. Notre application  Gestion de tâches inclura :
 
+un splash screen animé,
+
+une fonctionnalité Swipe-to-delete élégante et intuitive,
+
+ainsi qu’une option UndoDeletedItem qui permettra de restaurer une tâche supprimée en un simple clic grâce à une snackbar.
+
+Tout cela donnera vie à une application non seulement fonctionnelle, mais aussi agréable à utiliser.
+
+Enfin, au-delà des aspects techniques, vous apprendrez bien plus qu’un enchaînement d’API et de composants : vous découvrirez une nouvelle façon de penser le développement Android.
+Ce livre, tel un compagnon de route, sera régulièrement enrichi et mis à jour.
+Alors… qu’attendez-vous ?
+\textbf{Tournez la page, et entrons ensemble dans cette nouvelle ère du développement Android.}
