@@ -3,7 +3,7 @@
 \noindent
 \noindent
 \begin{minipage}[t]{0.48\textwidth}
-\section*{\footnotesize \textcolor{orange}{Pourquoi Compose change tout}}
+\section*{\footnotesize \textcolor{orange}{Pourquoi Compose change tout}\label{sec:intro}}
 
 {\footnotesize \textcolor{gray}{
 Bonjour et bienvenue dans ce livre consacré à Jetpack Compose.  
@@ -15,7 +15,7 @@ Et tu as raison : avec l’arrivée de Jetpack Compose en version stable, nous e
 
 \vspace{2em} % espace vertical à l'intérieur du bloc gauche
 
-\section*{\footnotesize \textcolor{orange}{Fin de l’ère XML}}
+\section*{\footnotesize \textcolor{orange}{Fin de l’ère XML}\label{sec:intro}}
 {\footnotesize \textcolor{gray}{
 Finis les fichiers XML interminables, finis les \texttt{findViewById()} qui traînent dans tous les coins.  
 Avec Compose, on écrit l’interface directement en Kotlin.  
@@ -27,21 +27,22 @@ Et, soyons honnêtes : on s’amuse beaucoup plus.
 \end{minipage}
 \hfill
 \begin{minipage}[t]{0.48\textwidth}
-\section*{Création simplifiée d’interfaces}
-
+\section*{\footnotesize \textcolor{orange}{Création simplifiée d’interfaces}\label{sec:intro}}
+{\footnotesize \textcolor{gray}{
 Tu veux créer un bouton personnalisé ?  
 Un champ de saisie un peu spécial ?  
 Ou carrément une interface complète qui réagit en temps réel ?  
 Rien de plus simple : une fonction, une annotation \texttt{@Composable}, et Compose s’occupe du reste.  
-
+}}
 \vspace{2em} % espace vertical à l'intérieur du bloc droit
 
-\section*{Un projet concret ensemble}
-
+\section*{\footnotesize \textcolor{orange}{Un projet concret ensemble}\label{sec:intro}}
+{\footnotesize \textcolor{gray}{
 Dans ce livre, on ne va pas se contenter de survoler Compose.  
 On va construire un vrai projet ensemble : une application de type Gestion de tâches.  
 Un seul \texttt{Activity}, zéro \texttt{Fragment}. Oui, zéro.  
 Et pourtant, une application complète, fonctionnelle, et moderne.  
+}}
 \end{minipage}
 \vspace{2em} % espace vertical à l'intérieur du bloc gauche
 \vspace{2em} % espace vertical à l'intérieur du bloc gauche
@@ -49,53 +50,30 @@ Et pourtant, une application complète, fonctionnelle, et moderne.
 title=\textbf{Voici ce qui t’attend}, sharp corners, boxrule=0.6pt]
 
 \begin{itemize}
-    \item[\textbf{--}] \textbf{Les bases de Jetpack Compose} : son cycle de vie, la recomposition, et le rôle magique du compilateur.
-    \item[\textbf{--}] \textbf{Room Database} : stocker nos tâches localement, avec même quelques requêtes SQL personnalisées.
-    \item[\textbf{--}] \textbf{Navigation Compose} : passer d’un écran à l’autre sans prise de tête.
-    \item[\textbf{--}] \textbf{ViewModel} : garder une logique propre et réutilisable.
-    \item[\textbf{--}] \textbf{DataStore} : enregistrer de petites préférences utilisateurs.
-    \item[\textbf{--}] \textbf{Dagger Hilt} : injecter nos dépendances comme des pros, sans se battre avec des \texttt{ViewModelFactory}.
+    \item[\footnotesize \textcolor{orange}{{--}}] \footnotesize \textcolor{orange}{{Les bases de Jetpack Compose} : son cycle de vie, la recomposition, et le rôle magique du compilateur.}
+    \item[\footnotesize \textcolor{orange}{{--}}] \footnotesize \textcolor{orange}{{Room Database} : stocker nos tâches localement, avec même quelques requêtes SQL personnalisées.}
+    \item[\footnotesize \textcolor{orange}{{--}}] \footnotesize \textcolor{orange}{{Navigation Compose} : passer d’un écran à l’autre sans prise de tête.}
+    \item[\footnotesize \textcolor{orange}{{--}}] \footnotesize \textcolor{orange}{{ViewModel} : garder une logique propre et réutilisable.}
+    \item[\footnotesize \textcolor{orange}{{--}}] \footnotesize \textcolor{orange}{{DataStore} : enregistrer de petites préférences utilisateurs.}
+    \item[\footnotesize \textcolor{orange}{{--}}] \footnotesize \textcolor{orange}{{Dagger Hilt} : injecter nos dépendances comme des pros, sans se battre avec des \texttt{ViewModelFactory}.}
 \end{itemize}
 
 \vspace{0.5em}
-\textbf{Et ce n’est pas tout :}
+{\footnotesize \textcolor{orange}{Et ce n’est pas tout :}}
 
 \begin{itemize}
-    \item[$\star$] Un \textbf{splash screen animé}.
-    \item[$\star$] Une fonction \textbf{Swipe-to-delete} (parce que supprimer en glissant, c’est tellement satisfaisant).
-    \item[$\star$] Un système \textbf{Undo} pour récupérer une tâche supprimée par erreur.
-    \item[$\star$] Des \textbf{animations fluides} pour rendre l’expérience encore plus agréable.
-    \item[$\star$] Le \textbf{mode sombre}, activé dès le départ, parce que nos yeux le méritent.
+     \item[\footnotesize \textcolor{orange}{{--}}]   \footnotesize \textcolor{orange}{{ Un splash screen animé}.}
+     \item[\footnotesize \textcolor{orange}{{--}}]   \footnotesize \textcolor{orange}{{ Une fonction Swipe-to-delete} ( parce que supprimer en glissant, c’est tellement satisfaisant).}
+     \item[\footnotesize \textcolor{orange}{{--}}]  \footnotesize \textcolor{orange}{{  Un système Undo} pour récupérer une tâche supprimée par erreur.}
+     \item[\footnotesize \textcolor{orange}{{--}}]   \footnotesize \textcolor{orange}{{Des animations fluides} pour rendre l’expérience encore plus agréable.}
+     \item[\footnotesize \textcolor{orange}{{--}}]   \footnotesize \textcolor{orange}{{Le mode sombre}, activé dès le départ, parce que nos yeux le méritent.}
 \end{itemize}
 
 \end{tcolorbox}
 
 \newpage
-\noindent Dans ce livre, nous allons manipuler certains des composants d’architecture Android les plus essentiels.
-Par exemple, nous utiliserons Room Database pour enregistrer et lire nos données localement. Et, bien sûr, nous irons plus loin qu’un simple CRUD : nous écrirons également quelques requêtes SQL personnalisées pour tirer pleinement parti de notre base de données.
-
-Ensuite, nous aborderons Compose Navigation, afin de passer d’un écran à l’autre sans la complexité habituelle.
-Puis, au fil du chemin, nous intégrerons un ViewModel, véritable cœur logique de notre application, qui nous permettra de centraliser et de structurer le code métier.
-À cela viendra s’ajouter le Preference DataStore, parfait pour sauvegarder de simples couples clé–valeur de manière moderne et sécurisée.
-
-Mais ce n’est pas tout. Vous découvrirez également une bibliothèque très populaire d’injection de dépendances : Dagger Hilt. Grâce à elle, plus besoin de créer manuellement des ViewModelFactory. Nous injecterons nos dépendances proprement, et surtout efficacement.
-
-Et parce qu’une application moderne ne se limite pas à sa logique interne, nous soignerons aussi son apparence.
-Notre application prendra en charge le mode sombre dès le départ. Vous verrez combien il est simple, avec Jetpack Compose, d’offrir plusieurs thèmes à vos utilisateurs.
-Nous créerons ensemble des composants UI personnalisés, tout en exploitant les composants Material Design les plus importants.
-Nous découvrirons aussi le Scaffold, un composable puissant qui utilise l’API des “slots” pour organiser vos interfaces de manière cohérente et fidèle aux recommandations de Material Design.
-
-Et ce n’est pas fini. Notre application  Gestion de tâches inclura :
-
-un splash screen animé,
-
-une fonctionnalité Swipe-to-delete élégante et intuitive,
-
-ainsi qu’une option UndoDeletedItem qui permettra de restaurer une tâche supprimée en un simple clic grâce à une snackbar.
-
-Tout cela donnera vie à une application non seulement fonctionnelle, mais aussi agréable à utiliser.
-
-Enfin, au-delà des aspects techniques, vous apprendrez bien plus qu’un enchaînement d’API et de composants : vous découvrirez une nouvelle façon de penser le développement Android.
-Ce livre, tel un compagnon de route, sera régulièrement enrichi et mis à jour.
-Alors… qu’attendez-vous ?
-\textbf{Tournez la page, et entrons ensemble dans cette nouvelle ère du développement Android.}
+\noindent 
+{\footnotesize \textcolor{darkgray}{Ce livre, tel un compagnon de route, sera régulièrement enrichi et mis à jour.}}
+\\
+{\footnotesize \textcolor{gray}{Alors… qu’attendez-vous ?}}
+\footnotesize \textcolor{orange}{{Tournez la page, et entrons ensemble dans cette nouvelle ère du développement Android.}}

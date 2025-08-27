@@ -1,24 +1,48 @@
-\section{\hyperref[sec:sommaire]{\textcolor{orange}{Créer notre premier projet Compose}}}\label{sec:chapter-1}
+% Section avec titre coloré et cliquable vers le sommaire
+\section[\texorpdfstring{Créer notre premier projet Compose}{Créer notre premier projet Compose}]%
+{\hyperref[sec:sommaire]{\textcolor{orange}{Créer notre premier projet Compose}}}%
+\label{sec:chapter-1}
 
+% Texte descriptif des étapes (pas de lignes vides dans \textcolor)
+{\footnotesize
+\textcolor{darkgray}{\textbf{Première étape :} Lors de la création d’un nouveau projet sous Android Studio,
+il faut commencer par choisir \textit{Empty Activity}, ce qui permet de démarrer
+avec une structure minimale et totalement personnalisable.}
+}
+
+\vspace{0.5em}
+
+{\footnotesize
+\textcolor{darkgray}{\textbf{Deuxième étape :} Ensuite, il est nécessaire de donner un nom à votre projet,
+définir le langage (Kotlin de préférence) et choisir l’emplacement de sauvegarde.}
+}
+
+% Custom command: \mygraphics[<options>]{<image-path>}{<title>}
+\newcommand{\mygraphics}[3][]{%
+  \tcbox[
+    enhanced,
+    capture=minipage,
+    boxsep=0pt,top=0pt,bottom=0pt,left=0pt,right=0pt,
+    boxrule=0.4pt,
+    drop fuzzy shadow,
+    nobeforeafter,
+    colback=black!75!white,
+    toptitle=2pt,bottomtitle=2pt,
+    center title,
+    fonttitle=\small\sffamily,
+    title={#3},
+    width=(\linewidth-4mm)/2,
+    height=6cm,
+    colbacktitle={black},
+    watermark zoom=1.0,
+    watermark graphics={#2}
+  ]{}%
+}
+
+% Images côte-à-côte
 \noindent
-\noindent
+\mygraphics{images/android-studio-1.png}{Première étape : Choisir Empty Activity}%
+\hfill
+\mygraphics{images/android-studio-2.png}{Deuxième étape : Nommer le projet}
 
-\noindent Nous allons commencer par un geste fondateur : la création d’un nouveau projet Android Studio.
-Oublions l’ancienne façon de faire. Cette fois, pas d’Empty Activity. Nous allons utiliser le modèle Empty Compose Activity, pensé spécialement pour Jetpack Compose et capable de générer automatiquement tous les fichiers essentiels à notre application.
-
-Le chemin est simple :
-Fichier → Nouveau → Nouveau projet.
-Nous sélectionnons Empty Compose Activity, puis donnons un nom à notre projet : ToDo Compose.
-
-Le SDK minimum sera fixé à 21. Un clic sur Finish, et Android Studio se met en marche.
-Gradle travaille en arrière-plan, prépare l’environnement, et quelques instants plus tard, notre projet est prêt.
-
-Ce que nous obtenons ?
-
-Une MainActivity, point d’entrée de l’application.
-
-Un UiPackage, qui contient lui-même un ThemePackage.
-
-Et dans ce ThemePackage, quatre fichiers Kotlin. Ces fichiers définissent les bases de notre thème, nos couleurs, notre typographie, notre identité visuelle.
-
-En quelques étapes, nous avons déjà entre les mains la structure d’une application Jetpack Compose fonctionnelle, prête à évoluer.
+\vspace{1em}
