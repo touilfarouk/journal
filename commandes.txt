@@ -114,3 +114,258 @@ dependencies {
     implementation(libs.hilt.navigation.compose)
 }
 \end{ktlst}
+
+
+--------------------------------------------------------for future use---------------------------
+// Barcode
+implementation("com.google.zxing:core:3.5.3")
+package com.farouk.todo
+
+import android.graphics.Bitmap
+import android.graphics.Color
+import android.graphics.Paint
+import android.graphics.pdf.PdfDocument
+import android.os.Bundle
+import android.util.Log
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.asImageBitmap
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import com.farouk.todo.ui.theme.TodoTheme
+import com.google.zxing.BarcodeFormat
+import com.google.zxing.MultiFormatWriter
+import com.google.zxing.WriterException
+import dagger.hilt.android.AndroidEntryPoint
+import java.io.File
+import java.io.FileOutputStream
+
+@AndroidEntryPoint
+class MainActivity : ComponentActivity() {
+    @OptIn(ExperimentalMaterial3Api::class)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContent {
+            TodoTheme {
+                Surface(color = MaterialTheme.colorScheme.background) {
+                    Scaffold(
+                        topBar = {
+                            TopAppBar(
+                                title = {
+                                    Text(
+                                        text = "Generate Bar Code",
+                                        modifier = Modifier.fillMaxWidth(),
+                                        textAlign = TextAlign.Center
+                                    )
+                                }
+                            )
+                        }
+                    ) { paddingValues ->
+                        Column(
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .padding(paddingValues)
+                                .padding(15.dp),
+                            verticalArrangement = Arrangement.Center,
+                            horizontalAlignment = Alignment.CenterHorizontally
+                        ) {
+                            // States
+                            var barCodeText by remember { mutableStateOf("") }
+                            var bitmap by remember { mutableStateOf<Bitmap?>(null) }
+
+                            // Barcode preview
+                            bitmap?.asImageBitmap()?.let { bmp ->
+                                Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                                    Image(
+                                        bitmap = bmp,
+                                        contentDescription = "Generated Barcode",
+                                        modifier = Modifier.size(width = 250.dp, height = 80.dp)
+                                    )
+                                    Text(
+                                        text = barCodeText,
+                                        style = MaterialTheme.typography.bodySmall,
+                                        textAlign = TextAlign.Center,
+                                        modifier = Modifier.padding(top = 2.dp)
+                                    )
+                                }
+                            }
+
+                            Spacer(modifier = Modifier.height(16.dp))
+
+                            // Input
+                            OutlinedTextField(
+                                value = barCodeText,
+                                onValueChange = { barCodeText = it },
+                                label = { Text(text = "Enter Barcode") },
+                                singleLine = true,
+                                modifier = Modifier.fillMaxWidth(0.8f)
+                            )
+
+                            Spacer(modifier = Modifier.height(25.dp))
+
+                            // Generate Button
+                            Button(
+                                onClick = {
+                                    if (barCodeText.isNotEmpty()) {
+                                        bitmap = generateBarCode(barCodeText)
+                                    }
+                                },
+                                modifier = Modifier
+                                    .fillMaxWidth(0.5f)
+                                    .height(60.dp),
+                                shape = RoundedCornerShape(5.dp),
+                                colors = ButtonDefaults.buttonColors(
+                                    containerColor = MaterialTheme.colorScheme.primary
+                                )
+                            ) {
+                                Text(
+                                    text = "Generate",
+                                    color = MaterialTheme.colorScheme.onPrimary,
+                                    fontSize = 13.sp
+                                )
+                            }
+
+                            Spacer(modifier = Modifier.height(16.dp))
+
+                            // Export PDF Button
+                            Button(
+                                onClick = {
+                                    if (barCodeText.isNotEmpty()) {
+                                        // Example: create list of barcodes (simulate many laptops)
+                                        val barcodeList = List(20) { i ->
+                                            val code = "$barCodeText-$i"
+                                            code to generateBarCode(code)
+                                        }
+                                        val file = saveBarcodesGridPdf(this@MainActivity, barcodeList)
+                                        Log.d("PDF", "Saved PDF at: ${file.absolutePath}")
+                                    }
+                                },
+                                modifier = Modifier
+                                    .fillMaxWidth(0.5f)
+                                    .height(60.dp),
+                                shape = RoundedCornerShape(5.dp),
+                                colors = ButtonDefaults.buttonColors(
+                                    containerColor = MaterialTheme.colorScheme.secondary
+                                )
+                            ) {
+                                Text(
+                                    text = "Export PDF",
+                                    color = MaterialTheme.colorScheme.onSecondary,
+                                    fontSize = 13.sp
+                                )
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/**
+ * Generate a barcode Bitmap
+ */
+fun generateBarCode(text: String): Bitmap {
+    val width = 500
+    val height = 150
+    val bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
+    val codeWriter = MultiFormatWriter()
+    try {
+        val bitMatrix = codeWriter.encode(
+            text,
+            BarcodeFormat.CODE_128,
+            width,
+            height
+        )
+        for (x in 0 until width) {
+            for (y in 0 until height) {
+                val color = if (bitMatrix[x, y]) Color.BLACK else Color.WHITE
+                bitmap.setPixel(x, y, color)
+            }
+        }
+    } catch (e: WriterException) {
+        Log.d("TAG", "generateBarCode: ${e.message}")
+    }
+    return bitmap
+}
+
+/**
+ * Save barcodes into a PDF (3×6 grid on A4)
+ */
+fun saveBarcodesGridPdf(
+    context: ComponentActivity,
+    barcodes: List<Pair<String, Bitmap>>,
+    fileName: String = "barcodes_grid.pdf"
+): File {
+    val document = PdfDocument()
+
+    // A4 in pixels at 300 DPI
+    val pageWidth = 2480
+    val pageHeight = 3508
+
+    // Grid (3 columns × 6 rows = 18 labels per page)
+    val cols = 3
+    val rows = 6
+    val cellWidth = pageWidth / cols
+    val cellHeight = pageHeight / rows
+
+    val paint = Paint().apply {
+        textSize = 42f  // larger for 300 DPI
+        textAlign = Paint.Align.CENTER
+    }
+
+    var pageIndex = 0
+    var count = 0
+
+    while (count < barcodes.size) {
+        val pageInfo = PdfDocument.PageInfo.Builder(pageWidth, pageHeight, pageIndex + 1).create()
+        val page = document.startPage(pageInfo)
+        val canvas = page.canvas
+
+        for (row in 0 until rows) {
+            for (col in 0 until cols) {
+                if (count >= barcodes.size) break
+
+                val (text, bmp) = barcodes[count]
+                val left = col * cellWidth
+                val top = row * cellHeight
+
+                // Scale barcode to ~70% of cell width, 40% of cell height
+                val targetWidth = (cellWidth * 0.7).toInt()
+                val targetHeight = (cellHeight * 0.4).toInt()
+                val scaledBmp = Bitmap.createScaledBitmap(bmp, targetWidth, targetHeight, false)
+
+                // Center inside cell
+                val x = left + (cellWidth - targetWidth) / 2
+                val y = top + 60  // margin from top
+                canvas.drawBitmap(scaledBmp, x.toFloat(), y.toFloat(), null)
+
+                // Draw text under barcode
+                val textY = y + targetHeight + 60
+                canvas.drawText(text, (left + cellWidth / 2).toFloat(), textY.toFloat(), paint)
+
+                count++
+            }
+        }
+
+        document.finishPage(page)
+        pageIndex++
+    }
+
+    val file = File(context.getExternalFilesDir(null), fileName)
+    document.writeTo(FileOutputStream(file))
+    document.close()
+
+    return file
+}
+
