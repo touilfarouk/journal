@@ -378,7 +378,7 @@ fun saveBarcodesGridPdf(
 % الهوامش
 \usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
 
-% الحزم المستعملة
+% الحزم
 \usepackage{graphicx}
 \usepackage[dvipsnames]{xcolor}
 \usepackage{pgfornament}
@@ -387,21 +387,27 @@ fun saveBarcodesGridPdf(
 \usepackage{tabularx}
 \usepackage{booktabs}
 \usepackage{fontawesome}
-% تخصيص الروابط
+\usepackage{tikz}
+\usepackage{tcolorbox}
+\tcbuselibrary{listings, minted, skins}
+
+% إعداد الروابط
 \hypersetup{
-    colorlinks=true,      % يلوّن النص بدل وضع إطار
-    linkcolor=Orange,     % لون روابط الفهرس (داخل المستند)
-    urlcolor=Orange,      % لون روابط الـ URL
-    citecolor=Orange      % لون المراجع (إن وجدت)
+    colorlinks=true,
+    linkcolor=Orange,
+    urlcolor=Orange,
+    citecolor=Orange
 }
+
 % اللغة
 \setdefaultlanguage[calendar=gregorian,locale=algeria]{arabic}
 \setotherlanguage{french}
+\setotherlanguage{english}
 
-% خط عربي جميل
+% الخطوط
 \newfontfamily\arabicfont[Script=Arabic,Scale=1.3]{Amiri}
-% خط لاتيني
 \newfontfamily\frenchfont{Times New Roman}
+\newfontfamily\englishfont{Times New Roman}
 
 % لون خلفية ناعم
 \definecolor{fondpaille}{cmyk}{0,0,0.1,0}
@@ -409,25 +415,50 @@ fun saveBarcodesGridPdf(
 % نقاط برتقالية للفهرس
 \newcommand{\orangedots}{\textcolor{Orange}{\leaders\hbox to .6em{\hss.\hss}\hfill}}
 
+% أكواد Kotlin (minted) - محسّن للمحاذاة من اليسار لليمين
+\definecolor{bg}{rgb}{0.1, 0.14, 0.13}
+\usemintedstyle{paraiso-dark}
+\tcbset{listing engine=minted}
+
+\newtcblisting{ktlst}{
+    listing only,
+    minted language=kotlin,
+    colback=bg,
+    enhanced,
+    frame hidden,
+    left=0pt,
+    right=0pt,
+    boxsep=5pt,
+    arc=3pt,
+    minted options={
+        tabsize=2, 
+        breaklines, 
+        autogobble,
+        fontsize=\footnotesize,
+        linenos=false,
+        bgcolor=bg
+    }
+}
+
 % --- بداية الوثيقة ---
 \begin{document}
+
+% غلاف بخلفية
 \begin{titlepage}
 \begin{tikzpicture}[remember picture,overlay]
   \node[inner sep=0pt] at (current page.center) {%
     \includegraphics[width=\paperwidth,height=1.1\paperheight]{images/background.png}};
 \end{tikzpicture}
-
-
 \end{titlepage}
 
-% === صفحة الغلاف ===
+% === صفحة العنوان ===
 \pagecolor{fondpaille}
 \color{black}
 
 \begin{titlepage}
 \centering
 {\Huge\bfseries \color{violet} كِتَابٌ فِي تَطْبِيعِ \LaTeX \\[1cm]}
-{\Large من إعداد: الصِّـيفي خديجة}\\[1cm]
+{\Large من إعداد: الصِّـيفي خديجة}\\[1cm]
 
 \pgfornament[scale=0.8]{89}\\[0.5cm]
 \includegraphics[width=3cm]{images/myphoto.png}\\[0.5cm]
@@ -437,14 +468,13 @@ fun saveBarcodesGridPdf(
 {\large \today}
 \end{titlepage}
 
-% === الفهرس المخصص ===
+% === الفهرس ===
 \newpage
 \pagecolor{white}
-
 \renewcommand{\contentsname}{الفهرس}
 
 \section*{الفهرس}
-\hypertarget{page:sommaire}{}  % <- مرجع العودة
+\hypertarget{page:sommaire}{}  
 
 {\footnotesize \textcolor{darkgray}{التنقّل في الفهرس والفصول ثنائي الاتجاه.}} \\
 
@@ -458,14 +488,14 @@ fun saveBarcodesGridPdf(
 \textbf{العنوان} & \textbf{الصفحة} \\
 \midrule
 \multicolumn{2}{@{}l}{\footnotesize \textcolor{darkgray}{{الجزء الأول: أسس Jetpack Compose}}} \\[0.5ex]
-\hyperref[sec:intro]{مقدمة: لماذا Compose غيَّر كل شيء} \orangedots & 
+\hyperref[sec:intro]{مقدمة: لماذا Compose غيَّر كل شيء} \orangedots & 
 {\footnotesize \hyperref[sec:intro]{\textcolor{darkgray}{1}}} \\
 \hyperref[sec:chapter-1]{إنشاء أوّل مشروع بـ Compose} \orangedots & 
 {\footnotesize \hyperref[sec:chapter-1]{\textcolor{darkgray}{4}}} \\
 \bottomrule
 \end{tabularx}
 
-% === بداية المحتوى ===
+% === المحتوى ===
 \chapter{المقدمة}
 \label{sec:intro}
 \hyperlink{page:sommaire}{\textcolor{Orange}{\faArrowLeft\ العودة إلى الفهرس}}
@@ -477,5 +507,57 @@ fun saveBarcodesGridPdf(
 \hyperlink{page:sommaire}{\textcolor{Orange}{\faArrowLeft\ العودة إلى الفهرس}}
 
 هذا نص الفصل الأول...
+
+% الطريقة الأولى: باستخدام english environment (الأفضل)
+\begin{english}
+\begin{ktlst}[title=مثال كود بلغة Kotlin]
+class MyKotlin {
+    fun hello() {
+        println("Hello LaTeX + Kotlin!")
+    }
+}
+\end{ktlst}
+\end{english}
+
+% الطريقة الثانية: باستخدام LTR مع latin
+\begin{latin}
+\LTR{
+\begin{ktlst}[title=مثال آخر لكود Kotlin]
+data class User(
+    val name: String,
+    val email: String
+) {
+    fun displayInfo() {
+        println("Name: $name, Email: $email")
+    }
+}
+\end{ktlst}
+}
+\end{latin}
+
+% الطريقة الثالثة: باستخدام minipage مع LTR (للتحكم الدقيق)
+\noindent
+\begin{minipage}{\textwidth}
+\LTR{%
+\begin{ktlst}[title=مثال متقدم لكود Kotlin]
+@Composable
+fun Greeting(name: String) {
+    Text(
+        text = "Hello $name!",
+        style = MaterialTheme.typography.h4,
+        color = Color.Blue
+    )
+}
+
+@Preview(showBackground = true)
+@Composable
+fun DefaultPreview() {
+    MyTheme {
+        Greeting("Android Developer")
+    }
+}
+\end{ktlst}
+}%
+\end{minipage}
 
 \end{document}
