@@ -411,6 +411,14 @@ fun saveBarcodesGridPdf(
 
 % --- بداية الوثيقة ---
 \begin{document}
+\begin{titlepage}
+\begin{tikzpicture}[remember picture,overlay]
+  \node[inner sep=0pt] at (current page.center) {%
+    \includegraphics[width=\paperwidth,height=1.1\paperheight]{images/background.png}};
+\end{tikzpicture}
+
+
+\end{titlepage}
 
 % === صفحة الغلاف ===
 \pagecolor{fondpaille}
