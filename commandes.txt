@@ -369,3 +369,105 @@ fun saveBarcodesGridPdf(
     return file
 }
 
+---------------------------------------------ARABIC LATEXT--------------------------
+% كتاب من إعداد 'SIFI Khedidja' (sifikhedidja@gmail.com) 
+% Compilation : XeLaTeX
+
+\documentclass[12pt,openany]{book}
+
+% الهوامش
+\usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
+
+% الحزم المستعملة
+\usepackage{graphicx}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{pgfornament}
+\usepackage{polyglossia}
+\usepackage{hyperref}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{fontawesome}
+% تخصيص الروابط
+\hypersetup{
+    colorlinks=true,      % يلوّن النص بدل وضع إطار
+    linkcolor=Orange,     % لون روابط الفهرس (داخل المستند)
+    urlcolor=Orange,      % لون روابط الـ URL
+    citecolor=Orange      % لون المراجع (إن وجدت)
+}
+% اللغة
+\setdefaultlanguage[calendar=gregorian,locale=algeria]{arabic}
+\setotherlanguage{french}
+
+% خط عربي جميل
+\newfontfamily\arabicfont[Script=Arabic,Scale=1.3]{Amiri}
+% خط لاتيني
+\newfontfamily\frenchfont{Times New Roman}
+
+% لون خلفية ناعم
+\definecolor{fondpaille}{cmyk}{0,0,0.1,0}
+
+% نقاط برتقالية للفهرس
+\newcommand{\orangedots}{\textcolor{Orange}{\leaders\hbox to .6em{\hss.\hss}\hfill}}
+
+% --- بداية الوثيقة ---
+\begin{document}
+
+% === صفحة الغلاف ===
+\pagecolor{fondpaille}
+\color{black}
+
+\begin{titlepage}
+\centering
+{\Huge\bfseries \color{violet} كِتَابٌ فِي تَطْبِيعِ \LaTeX \\[1cm]}
+{\Large من إعداد: الصِّـيفي خديجة}\\[1cm]
+
+\pgfornament[scale=0.8]{89}\\[0.5cm]
+\includegraphics[width=3cm]{images/myphoto.png}\\[0.5cm]
+\pgfornament[scale=0.8]{88}
+
+\vfill
+{\large \today}
+\end{titlepage}
+
+% === الفهرس المخصص ===
+\newpage
+\pagecolor{white}
+
+\renewcommand{\contentsname}{الفهرس}
+
+\section*{الفهرس}
+\hypertarget{page:sommaire}{}  % <- مرجع العودة
+
+{\footnotesize \textcolor{darkgray}{التنقّل في الفهرس والفصول ثنائي الاتجاه.}} \\
+
+{\footnotesize \textcolor{gray}{\textit{كل عنوان فصل قابل للنقر ويعيدك مباشرةً إلى الصفحة المعنية.  
+كما أنّ كل صفحة فصل تحتوي على رابط للعودة إلى الفهرس لتسهيل التصفّح.}}}
+
+\vspace{1cm}
+
+\begin{tabularx}{\textwidth}{@{}Xr@{}}
+\toprule
+\textbf{العنوان} & \textbf{الصفحة} \\
+\midrule
+\multicolumn{2}{@{}l}{\footnotesize \textcolor{darkgray}{{الجزء الأول: أسس Jetpack Compose}}} \\[0.5ex]
+\hyperref[sec:intro]{مقدمة: لماذا Compose غيَّر كل شيء} \orangedots & 
+{\footnotesize \hyperref[sec:intro]{\textcolor{darkgray}{1}}} \\
+\hyperref[sec:chapter-1]{إنشاء أوّل مشروع بـ Compose} \orangedots & 
+{\footnotesize \hyperref[sec:chapter-1]{\textcolor{darkgray}{4}}} \\
+\bottomrule
+\end{tabularx}
+
+% === بداية المحتوى ===
+\chapter{المقدمة}
+\label{sec:intro}
+\hyperlink{page:sommaire}{\textcolor{Orange}{\faArrowLeft\ العودة إلى الفهرس}}
+
+هذا نص تمهيدي...
+
+\chapter{إنشاء أوّل مشروع بـ Compose}
+\label{sec:chapter-1}
+\hyperlink{page:sommaire}{\textcolor{Orange}{\faArrowLeft\ العودة إلى الفهرس}}
+
+هذا نص الفصل الأول...
+
+\end{document}
