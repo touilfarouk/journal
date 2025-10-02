@@ -1,0 +1,20 @@
+\section*{الفهرس}
+\hypertarget{page:sommaire}{}  
+
+\begin{tabularx}{\textwidth}{@{}Xr@{}}
+\toprule
+\textbf{العنوان} & \textbf{الصفحة} \\
+\midrule
+\multicolumn{2}{@{}l}{\footnotesize \textcolor{darkgray}{{الجزء الأول: مقدمة في تطوير الويب}}} \\[0.5ex]
+\hyperref[sec:intro]{المقدمة: لماذا نتعلّم تطوير الويب؟} \orangedots & 
+{\footnotesize \hyperref[sec:intro]{\textcolor{darkgray}{1}}} \\
+\hyperref[sec:html]{الفصل 1: التعرف على HTML وبنية الصفحات} \orangedots & 
+{\footnotesize \hyperref[sec:html]{\textcolor{darkgray}{4}}} \\
+\hyperref[sec:css]{الفصل 2: CSS أساسيات تنسيق الصفحات} \orangedots & 
+{\footnotesize \hyperref[sec:css]{\textcolor{darkgray}{12}}} \\
+\hyperref[sec:js]{الفصل 3: JavaScript وإضافة التفاعل} \orangedots & 
+{\footnotesize \hyperref[sec:js]{\textcolor{darkgray}{22}}} \\
+\hyperref[sec:tools]{الفصل 4: الأدوات الأساسية للمطور المسلم} \orangedots & 
+{\footnotesize \hyperref[sec:tools]{\textcolor{darkgray}{35}}} \\
+\bottomrule
+\end{tabularx}

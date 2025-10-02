@@ -1,29 +1,79 @@
-(Transcribed by TurboScribe.ai. Go Unlimited to remove this message.)
+\section{\hyperref[sec:sommaire]{\textcolor{orange}{Introduction}}}\label{sec:intro}
 
-Hi, hello there, and welcome to my course. In this course, I'm going to teach you how to build your first Android app from scratch using a popular UI toolkit called Jetpack Compose. I know that lots of you have been waiting for this moment, a moment when Jetpack Compose became stable.
+\noindent
+\noindent
+\begin{minipage}[t]{0.48\textwidth}
+\section*{\footnotesize \textcolor{orange}{Pourquoi Compose change tout}\label{sec:intro}}
 
-And now is the right time to be an Android developer. With Jetpack Compose, building Android apps is going to be exciting, fun, and a lot simpler than before. We're not going to need XML anymore.
+{\footnotesize \textcolor{gray}{
+Bonjour et bienvenue dans ce livre consacré à Jetpack Compose.  
+Si tu tiens ce livre entre tes mains, c’est probablement parce que tu sens que quelque chose a changé dans le monde du développement Android.  
+Et tu as raison : avec l’arrivée de Jetpack Compose en version stable, nous entrons dans une nouvelle ère.
+}}
 
-Instead, we're going to build our UI with a regular Kotlin file, using the full power of Kotlin programming language. Also, creating a custom UI component has never been easier. So, you want to build a custom UI component? No problem.
+ 
 
-Just start by adding a simple function annotated with a composable annotation. And of course, how would this course look like without a real project? So, our to-do application, which we are going to develop in this course, will have a single activity and zero fragments. Sounds impossible? Well, it isn't.
+\vspace{2em} % espace vertical à l'intérieur du bloc gauche
 
-So, better get used to it, because that will greatly simplify the process of developing Android apps. Now, at the beginning of this course, I'm going to introduce you with Jetpack Compose in general, and with some of the most important concepts as well. You will learn everything about the lifecycle of a single composable, and how Compose Compiler is doing all the hard work for you behind the scenes.
+\section*{\footnotesize \textcolor{orange}{Fin de l’ère XML}\label{sec:intro}}
+{\footnotesize \textcolor{gray}{
+Finis les fichiers XML interminables, finis les \texttt{findViewById()} qui traînent dans tous les coins.  
+Avec Compose, on écrit l’interface directement en Kotlin.  
+On pense en déclaratif.  
+On code plus vite.  
+On code plus propre.  
+Et, soyons honnêtes : on s’amuse beaucoup plus.  
+}}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\section*{\footnotesize \textcolor{orange}{Création simplifiée d’interfaces}\label{sec:intro}}
+{\footnotesize \textcolor{gray}{
+Tu veux créer un bouton personnalisé ?  
+Un champ de saisie un peu spécial ?  
+Ou carrément une interface complète qui réagit en temps réel ?  
+Rien de plus simple : une fonction, une annotation \texttt{@Composable}, et Compose s’occupe du reste.  
+}}
+\vspace{2em} % espace vertical à l'intérieur du bloc droit
 
-Now, in this course, we are going to use some of the most important Android architecture components, like Room Database, to save and read data from a local database. Plus, we're going to write some custom SQL queries as well. Then, we have Compose Navigation, so we can navigate between our screen composables.
+\section*{\footnotesize \textcolor{orange}{Un projet concret ensemble}\label{sec:intro}}
+{\footnotesize \textcolor{gray}{
+Dans ce livre, on ne va pas se contenter de survoler Compose.  
+On va construire un vrai projet ensemble : une application de type Gestion de tâches.  
+Un seul \texttt{Activity}, zéro \texttt{Fragment}. Oui, zéro.  
+Et pourtant, une application complète, fonctionnelle, et moderne.  
+}}
+\end{minipage}
+\vspace{2em} % espace vertical à l'intérieur du bloc gauche
+\vspace{2em} % espace vertical à l'intérieur du bloc gauche
+\begin{tcolorbox}[colback=orange!5!white, colframe=orange!80!black, 
+title=\textbf{Voici ce qui t’attend}, sharp corners, boxrule=0.6pt]
 
-And at the end of this course, you will also learn how to add some beautiful transition animations as well. Next, we have a ViewModel, which will contain all the logic needed to work with our app. Then, we have a PreferenceDataStore, to persist a simple key and value pairs.
+\begin{itemize}
+    \item[\footnotesize \textcolor{orange}{{--}}] \footnotesize \textcolor{orange}{{Les bases de Jetpack Compose} : son cycle de vie, la recomposition, et le rôle magique du compilateur.}
+    \item[\footnotesize \textcolor{orange}{{--}}] \footnotesize \textcolor{orange}{{Room Database} : stocker nos tâches localement, avec même quelques requêtes SQL personnalisées.}
+    \item[\footnotesize \textcolor{orange}{{--}}] \footnotesize \textcolor{orange}{{Navigation Compose} : passer d’un écran à l’autre sans prise de tête.}
+    \item[\footnotesize \textcolor{orange}{{--}}] \footnotesize \textcolor{orange}{{ViewModel} : garder une logique propre et réutilisable.}
+    \item[\footnotesize \textcolor{orange}{{--}}] \footnotesize \textcolor{orange}{{DataStore} : enregistrer de petites préférences utilisateurs.}
+    \item[\footnotesize \textcolor{orange}{{--}}] \footnotesize \textcolor{orange}{{Dagger Hilt} : injecter nos dépendances comme des pros, sans se battre avec des \texttt{ViewModelFactory}.}
+\end{itemize}
 
-And you will learn about a popular dependence injection library called DaggerHilt. You will see how to inject a ViewModel with different dependencies, without needing to create a ViewModelFactory. So, by default, our application will support dark mode as well, and you will learn how easy it is to have two different themes of your app, with Jetpack Compose.
+\vspace{0.5em}
+{\footnotesize \textcolor{orange}{Et ce n’est pas tout :}}
 
-Also, you will learn how to build your own custom UI components. And we will use some of the most important material components, along with the Scaffold, which is an amazing composable function that uses Slots API, to place all your UI components in the place they belong, by the rules of material design documentation. Now, to-do application on which we are going to work on, we'll have an animated splash screen, as some other components in our app as well.
+\begin{itemize}
+     \item[\footnotesize \textcolor{orange}{{--}}]   \footnotesize \textcolor{orange}{{ Un splash screen animé}.}
+     \item[\footnotesize \textcolor{orange}{{--}}]   \footnotesize \textcolor{orange}{{ Une fonction Swipe-to-delete} ( parce que supprimer en glissant, c’est tellement satisfaisant).}
+     \item[\footnotesize \textcolor{orange}{{--}}]  \footnotesize \textcolor{orange}{{  Un système Undo} pour récupérer une tâche supprimée par erreur.}
+     \item[\footnotesize \textcolor{orange}{{--}}]   \footnotesize \textcolor{orange}{{Des animations fluides} pour rendre l’expérience encore plus agréable.}
+     \item[\footnotesize \textcolor{orange}{{--}}]   \footnotesize \textcolor{orange}{{Le mode sombre}, activé dès le départ, parce que nos yeux le méritent.}
+\end{itemize}
 
-Also, an animated SwipeToDelete functionality, which will allow us to easily remove an item from the list. And along with that, we will add a safety feature called UndoDeletedItem, which will display a snack bar, whenever we delete an item from the list. So, we can get it back just by one click.
+\end{tcolorbox}
 
-Now, you will learn plenty of other things related to the new way of developing Android apps. And finally, this course will be constantly updated with new videos whenever needed. So, whenever we find a bug in our application, then I'm going to record a video about it, and we are going to fix that together.
-
-Plus, you will be in contact with me throughout this whole course, and you can always ask me a question related to this course, and even suggest some code cleanup for the project, if you are skilled enough to find it. Overall, this is going to be quite a journey. So, what are you waiting for, my friend? Let's start learning!
-
-(Transcribed by TurboScribe.ai. Go Unlimited to remove this message.)
-
--------------------------------------------------------------------------french----------------------------------------------
+\newpage
+\noindent 
+{\footnotesize \textcolor{darkgray}{Ce livre, tel un compagnon de route, sera régulièrement enrichi et mis à jour.}}
+\\
+{\footnotesize \textcolor{gray}{Alors… qu’attendez-vous ?}}
+\footnotesize \textcolor{orange}{{Tournez la page, et entrons ensemble dans cette nouvelle ère du développement Android.}}
