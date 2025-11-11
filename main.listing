@@ -1,17 +1,15 @@
-[title=مثال متقدم لكود Kotlin]
-@Composable
-fun Greeting(name: String) {
-    Text(
-        text = "Hello $name!",
-        style = MaterialTheme.typography.h4,
-        color = Color.Blue
-    )
-}
+dependencies {
 
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    MyTheme {
-        Greeting("Android Developer")
-    }
+    // Hilt dependencies
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
+    implementation(libs.hilt.navigation.compose)
+
+    // Room components
+    implementation(libs.androidx.room.runtime)
+    ksp (libs.androidx.room.compiler)
+    implementation(libs.androidx.room.ktx)
+
+    // DataStore Preferences
+    implementation(libs.androidx.datastore.preferences)
 }
