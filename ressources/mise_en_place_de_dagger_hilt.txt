@@ -1,0 +1,84 @@
+
+
+ 
+\section{\textcolor{orange}{Mise en place de Dagger Hilt}}\label{sec:classes}
+\begin{ktlst}
+
+% [versions]
+hilt = "2.52"
+ksp = "2.0.21-1.0.25"
+roomRuntime = "2.7.2"
+datastorePreferences = "1.1.7"
+
+% [libraries]
+
+androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "datastorePreferences" }
+androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomRuntime" }
+androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "roomRuntime" }
+androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "roomRuntime" }
+hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
+hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt" }
+hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version = "1.2.0" }
+
+% [plugins]
+hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+
+\end{ktlst}
+
+
+\begin{ktlst}
+plugins {
+    alias(libs.plugins.android.application) apply false
+    alias(libs.plugins.kotlin.android) apply false
+    alias(libs.plugins.kotlin.compose) apply false
+
+    alias(libs.plugins.hilt.android) apply false   
+    alias(libs.plugins.ksp) apply false          
+
+}
+\end{ktlst}
+
+\begin{ktlst}
+plugins {
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.compose)
+    //  apply Hilt + KSP only here
+    alias(libs.plugins.hilt.android)
+    alias(libs.plugins.ksp)
+
+}
+\end{ktlst}
+
+\begin{ktlst}
+dependencies {
+
+    // Hilt dependencies
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
+    implementation(libs.hilt.navigation.compose)
+
+    // Room components
+    implementation(libs.androidx.room.runtime)
+    ksp (libs.androidx.room.compiler)
+    implementation(libs.androidx.room.ktx)
+
+    // DataStore Preferences
+    implementation(libs.androidx.datastore.preferences)
+}
+\end{ktlst}
+
+
+
+
+---------------------------Documentation-----------------------
+
+Documentation Officielle (Hilt) : https://dagger.dev/hilt/
+
+Documentation Officielle : https://developer.android.com/topic/libraries/architecture/datastore
+
+Documentation Officielle : https://developer.android.com/jetpack/androidx/releases/room
+
+de ma part et mon propre style de code, je commance par definire les versions des librairies dan le fichier libs.versions.toml
+
