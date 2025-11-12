@@ -168,3 +168,111 @@ fun GreetingPreview() {
     }
 }
 \end{ktlst}
+{\footnotesize
+\textcolor{darkgray}{
+Pour résumer, ce code génère une application Android simple avec une interface utilisateur définie en Jetpack Compose.
+L'écran affiche un message de bienvenue "Hello Android!" en utilisant une fonction composable.
+}
+}
+\vspace{1em}
+{\footnotesize
+\textcolor{darkgray}{
+Mantement que nous avons compris le code généré par défaut, nous allons le modifier pour créer une application de comptage  simple, que l'utilisateur pourra utiliser pour afficher un compteur sur l'ecran et incrémenter sa valeur en appuyant sur un bouton.
+}
+}
+\vspace{1em}
+% Fin de la section
+
+{\footnotesize
+\textcolor{darkgray}{
+Nous allons commencer par supprimer le code généré automatiquement dans \texttt{MainActivity.kt} et le remplacer par le code suivant :
+}
+}
+\vspace{1em}
+% --- Code Kotlin modifié ---
+\begin{ktlst}
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            CompteurApp()
+        }
+    }
+}   
+@Composable
+fun CompteurApp() {
+    var count by remember { mutableStateOf(0) }
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Text(text = "Compteur : \$count", fontSize = 32.sp)
+        Spacer(modifier = Modifier.height(16.dp))
+        Button(onClick = { count++ }) {
+            Text(text = "Incrémenter")
+        }
+    }
+}       
+\end{ktlst}
+{\footnotesize
+\textcolor{darkgray}{
+Ce code crée une application de comptage simple avec un bouton pour incrémenter la valeur du compteur. Nous allons maintenant expliquer chaque partie de ce code.
+}
+}
+
+\vspace{1em}
+{\footnotesize
+\textcolor{darkgray}{
+\texttt{\textcolor{orange}{CompteurApp()}} Fonction composable principale de l'application. Elle gère l'état du compteur et affiche le texte et le bouton.
+}
+}
+\vspace{0.7em}
+{\footnotesize
+\textcolor{darkgray}{
+\texttt{\textcolor{orange}{var count by remember \{ mutableStateOf(0) \}}} Déclaration d'une variable d'état \texttt{count} initialisée à 0. La fonction \texttt{remember} permet de conserver la valeur entre les recompositions.
+}
+}
+\vspace{0.7em}
+{\footnotesize  
+\textcolor{darkgray}{
+\texttt{\textcolor{orange}{Column(...)}} Conteneur vertical qui aligne ses enfants (le texte et le bouton) au centre de l'écran.
+}
+}
+\vspace{0.7em}
+{\footnotesize  
+\textcolor{darkgray}{
+\texttt{\textcolor{orange}{Text(...)}} Affiche le texte du compteur avec
+la valeur actuelle de \texttt{count}.
+}
+}
+\vspace{0.7em}
+{\footnotesize  
+\textcolor{darkgray}{
+\texttt{\textcolor{orange}{Button(onClick = \{ count++ \})}} Bouton qui incrémente la valeur de \texttt{count} lorsqu'il est cliqué.
+}
+}
+\vspace{1em}
+
+{\footnotesize
+\textcolor{darkgray}{
+Avec ce code, nous avons créé une application de comptage simple en utilisant Jetpack Compose.  
+Lorsque l'utilisateur appuie sur le bouton "Incrémenter", la valeur du compteur augmente et l'interface utilisateur se met à jour automatiquement pour refléter la nouvelle valeur.
+}
+}
+\vspace{1em}
+% Fin de la section 
+
+{\footnotesize
+\textcolor{darkgray}{
+Nous avons ainsi couvert les bases de la création d'une application Android avec Jetpack Compose.
+}
+}
+\vspace{2em}
+{\footnotesize
+\textcolor{darkgray}{Dans le prochain chapitre, nous explorerons davantage les concepts de Jetpack Compose,
+y compris la gestion de l'état, la navigation entre les écrans et l'intégration avec
+d'autres bibliothèques Android.}
+}
