@@ -169,9 +169,6 @@ fun GreetingPreview() {
 }
 \end{ktlst}
 
-\subsection*{\hyperref[sec:sommaire]{\textcolor{orange}{Le cycle de vie d'un composable}}}
-\phantomsection
-\label{subsec:composable-lifecycle}
 
 {\footnotesize
 \textcolor{darkgray}{
@@ -342,26 +339,62 @@ Column(
 
 
 
-% \subsection*{Le cycle de vie d'un composable}
-% \phantomsection
-% \label{subsec:composable-lifecycle}
-% {\footnotesize
-% \textcolor{darkgray}{
-% Le cycle de vie d'un composable est géré automatiquement par Jetpack Compose.
-% Lorsque l'utilisateur appuie sur le bouton "Incrémenter", la valeur du compteur augmente et l'interface utilisateur se met à jour automatiquement pour refléter la nouvelle valeur.
-% }
-% }
+
+
+
+
+\subsection*{\hyperref[sec:sommaire]{\textcolor{orange}{Le cycle de vie d'un composable}}}
+\phantomsection
+\label{subsec:composable-lifecycle}
+{\footnotesize
+\textcolor{darkgray}{
+Le cycle de vie d'un composable correspond à toutes les étapes par lesquelles il passe pendant son existence dans l'interface : \textcolor{darkgray}{\textbf{création}}, \textcolor{darkgray}{\textbf{affichage}}, \textcolor{darkgray}{\textbf{mise à jour}}, puis \textcolor{darkgray}{\textbf{disparition}}.
+Contrairement aux vues traditionnelles   (\texttt{\textcolor{orange}{XML}}), Jetpack Compose ne modifie pas directement l'UI  (\texttt{\textcolor{orange}{Interface Utilisateur}}) : il recompose les éléments à partir de l'état. Cela permet une interface plus réactive, plus simple et plus performante.
+}
+}
+
+
+
+
+\vspace{1.5em}
+\noindent
+\begin{minipage}[t]{0.48\linewidth}
+  \vspace{0pt}%
+{\footnotesize
+  \textcolor{lightgray}{
+    \textit{Aperçu du résultat final de l'application compteur, correspondant au code complet présenté ci-dessous.}
+  }
+}
+\vspace{1em}
+
+{\small \textcolor{orange}{\textbf{Le cycle de vie d'un composable}}}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.48\linewidth}
+  \vspace{0pt}%
+ \includegraphics[width=\linewidth]{images/chapter-1/counter-app.png}
+\end{minipage}
+
+\vspace{1.5em}
 
 
 
 
 
+\vspace{1.5em}
+\noindent
+\begin{minipage}[t]{0.48\linewidth}
+  \vspace{0pt}%
+  {\footnotesize
+  \textcolor{darkgray}{
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel sagittis lorem. Vivamus nisi turpis, pulvinar non purus vel, aliquet congue tortor.
+  }}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.48\linewidth}
+  \vspace{0pt}%
+  {\footnotesize
+  \textcolor{darkgray}{
+  Donec ligula felis, iaculis ut interdum id, egestas sit amet nisi. Praesent at libero ligula. Phasellus mattis, arcu at posuere commodo, lectus turpis auctor risus.
+  }}
+\end{minipage}
 
-
-
-% \begin{center}
-%     \includegraphics[width=0.35\linewidth]{images/chapter-1/counter-app.png}\\[0.4em]
-%     {\footnotesize\textcolor{darkgray}{Aperçu du résultat final de l'application compteur, correspondant au code complet présenté ci-dessous.}}
-% \end{center}
-
-% \vspace{-2.5em}
+\vspace{1.5em}
