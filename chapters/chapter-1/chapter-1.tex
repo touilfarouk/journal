@@ -367,7 +367,19 @@ Contrairement aux vues traditionnelles   (\texttt{\textcolor{orange}{XML}}), Jet
 }
 \vspace{1em}
 
-{\small \textcolor{orange}{\textbf{Le cycle de vie d'un composable}}}
+{\small \textcolor{orange}{\textbf{Le cycle de vie d'un composable:}}}
+{\footnotesize
+\textcolor{darkgray}{
+Un composable suit un cycle de vie simple mais puissant :
+\begin{itemize}
+\item \textbf{Entrée dans la Composition} : Le composable est exécuté pour la première fois
+\item \textbf{Recomposition} : Mise à jour en cas de modification d'état
+\item \textbf{Sortie de la Composition} : Nettoyage quand le composable n'est plus affiché
+\end{itemize}
+Contrairement aux activités ou fragments, les recompositions sont légères et automatiques.}
+  \vspace{0pt}%
+ \includegraphics[width=\linewidth]{images/chapter-1/recomposition.png}
+}
 \end{minipage}\hfill
 \begin{minipage}[t]{0.48\linewidth}
   \vspace{0pt}%
@@ -386,14 +398,14 @@ Contrairement aux vues traditionnelles   (\texttt{\textcolor{orange}{XML}}), Jet
   \vspace{0pt}%
   {\footnotesize
   \textcolor{darkgray}{
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel sagittis lorem. Vivamus nisi turpis, pulvinar non purus vel, aliquet congue tortor.
+  La puissance de Jetpack Compose réside dans sa capacité à simplifier la création d'interfaces utilisateur complexes. En utilisant des fonctions Kotlin, vous pouvez créer des composants réutilisables et hautement personnalisables. L'approche déclarative permet une meilleure lisibilité du code et une maintenance simplifiée.
   }}
 \end{minipage}\hfill
 \begin{minipage}[t]{0.48\linewidth}
   \vspace{0pt}%
   {\footnotesize
   \textcolor{darkgray}{
-  Donec ligula felis, iaculis ut interdum id, egestas sit amet nisi. Praesent at libero ligula. Phasellus mattis, arcu at posuere commodo, lectus turpis auctor risus.
+  L'architecture de Compose encourage la séparation des préoccupations. Les composants d'interface utilisateur deviennent des fonctions pures qui transforment l'état en éléments visuels. Cette approche facilite les tests et améliore la maintenabilité du code, tout en offrant des performances optimales grâce à son système de recomposition intelligente.
   }}
 \end{minipage}
 
