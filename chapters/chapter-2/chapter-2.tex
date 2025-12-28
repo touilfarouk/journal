@@ -1,0 +1,78 @@
+% Section avec titre coloré et cliquable vers le sommaire
+\section[\texorpdfstring{Création d'interfaces utilisateur avancées}{Création d'interfaces utilisateur avancées}]%
+{\hyperref[sec:sommaire]{\textcolor{orange}{Création d'interfaces utilisateur avancées}}}%
+\label{sec:chapter-2}
+
+{\footnotesize
+\textcolor{darkgray}{Dans ce chapitre, nous allons explorer des techniques avancées pour créer des interfaces utilisateur plus sophistiquées avec Jetpack Compose. Nous aborderons la gestion avancée de l'état, la création de mises en page complexes, et l'utilisation de composants Material Design avancés. Préparez-vous à donner vie à vos interfaces avec des animations fluides et des interactions utilisateur intuitives.}
+}
+\vspace{1.5em}
+
+% Texte descriptif des étapes (pas de lignes vides dans \textcolor)
+{\footnotesize
+\textcolor{darkgray}{\textbf{Première étape :} Comprendre les concepts fondamentaux des mises en page avancées. Nous allons explorer les contraintes personnalisées, les layouts complexes et la gestion de l'espace dans Jetpack Compose.}
+}
+
+\vspace{0.5em}
+
+{\footnotesize
+\textcolor{darkgray}{\textbf{Deuxième étape :} Maîtriser la gestion d'état avancée. Nous verrons comment utiliser les états dérivés, les side effects et les patterns d'architecture pour créer des applications robustes et maintenables.}
+}
+
+\vspace{0.5em}
+
+{\footnotesize
+\textcolor{darkgray}{\textbf{Troisième étape :} Implémenter des animations et des transitions fluides. Nous apprendrons à créer des animations personnalisées, des transitions d'écran et des micro-interactions qui améliorent l'expérience utilisateur.}
+}
+
+% Custom command: \mygraphics[<options>]{<image-path>]{<title>}
+\newcommand{\mygraphics}[3][]{%
+  \tcbox[
+    enhanced,
+    capture=minipage,
+    boxsep=0pt,top=0pt,bottom=0pt,left=0pt,right=0pt,
+    boxrule=0.4pt,
+    drop fuzzy shadow,
+    nobeforeafter,
+    colback=black!75!white,
+    toptitle=2pt,bottomtitle=2pt,
+    center title,
+    fonttitle=\small\sffamily,
+    title={#3},
+    width=(\linewidth-4mm)/2,
+    height=6cm,
+    colbacktitle={black},
+    watermark zoom=1.0,
+    watermark graphics={#2}
+  ]{}%
+}
+
+\vspace{1em}
+
+\noindent
+\begin{minipage}[t]{0.48\linewidth}
+  \vspace{0pt}%
+  \mygraphics{images/chapter-2/advanced-layouts.png}{Mises en page avancées}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.48\linewidth}
+  \vspace{0pt}%
+  \mygraphics{images/chapter-2/state-management.png}{Gestion d'état}
+\end{minipage}
+
+\vspace{1em}
+
+{\footnotesize
+\textcolor{darkgray}{\textbf{Objectifs du chapitre :} À la fin de ce chapitre, vous serez capable de créer des interfaces utilisateur complexes et interactives avec Jetpack Compose, en utilisant des techniques avancées de mise en page, de gestion d'état et d'animation.}
+}
+
+\vspace{1em}
+
+\subsection{Introduction aux mises en page avancées}
+\label{subsec:advanced-layouts}
+
+\begin{minipage}{\linewidth}
+  \footnotesize
+  \textcolor{darkgray}{
+  Les mises en page avancées dans Jetpack Compose vous permettent de créer des interfaces utilisateur complexes et réactives. Nous allons explorer comment utiliser les contraintes personnalisées, les layouts personnalisés et les composants d'interface utilisateur avancés pour donner vie à vos conceptions.
+  }
+\end{minipage}
